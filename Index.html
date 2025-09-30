@@ -7,21 +7,33 @@
 </head>
 <body>
     <h1>Lista de tarefas</h1>
-    <input type="text" id="item" placeholder="novo item">
+
+
+
+    <input type="text" id="item1" placeholder="Tarefa">
+    <input type="text" id="item2" placeholder="Data final">
     <button onclick="adicionarItem()">Adicionar</button>
-    <li id="lista"></li>
+
+    <table id="lista">
+        <tr>
+            <td> </td>
+        </tr>
+    </table>
+
+
 
 
     <script>
 
         function adicionarItem() {
-            const texto = document.getElementById("item").value;
-            const novoItem = document.createElement("li");
-            novoItem.textContent = texto;
+            const texto1 = document.getElementById("item1").value
+            const texto2 = document.getElementById("item2").value;
+            const novoItem = document.createElement("td");
+            novoItem.textContent = texto1 + " - " + texto2;
             document.getElementById("lista").appendChild(novoItem);
         }
+        // deixar um embaixo do outro e no formato de lista.. add no td dentro do tr a cada adição
     </script>
-
 
 </body>
 </html>
