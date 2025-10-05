@@ -4,35 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tarefa</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Lista de tarefas</h1>
+    <header>
+        <img src="img/tarefa.png" alt="" class="imgHeader">
+        <div>
+            <h1 class="titulo">Lista de tarefas</h1>
+            <p>Organize suas ideias e deveres</p>
+        </div>
+    </header>
 
+    <div class="container">
+        
+        <div>
+            <input type="text" id="item" placeholder="Tarefa:" class="addTexto">
+            <input type="text" id="data" placeholder="Data final:" class="addTexto">
+            <button onclick="adicionarItem()" class="button">Adicionar</button>
+        </div>
 
+        <div class="containerLista">
 
-    <input type="text" id="item1" placeholder="Tarefa">
-    <input type="text" id="item2" placeholder="Data final">
-    <button onclick="adicionarItem()">Adicionar</button>
+            <table id="lista">
+                <tr> 
+                    <td class="primLinha">Check</td>
+                    <td class="primLinha">Tarefa</td> 
+                    <td class="primLinha">Data Final</td>
 
-    <table id="lista">
-        <tr>
-            <td> </td>
-        </tr>
-    </table>
+                </tr>
+                <!-- <input type="checkbox" name="" id="">
+                <label for=""> a</label> -->
+                <!-- COLOCAR CHECK AO LADO DA TABELA -->
+            </table>
+        </div>
+    </div>
 
-
-
-
+    
     <script>
-
         function adicionarItem() {
-            const texto1 = document.getElementById("item1").value
-            const texto2 = document.getElementById("item2").value;
-            const novoItem = document.createElement("td");
-            novoItem.textContent = texto1 + " - " + texto2;
-            document.getElementById("lista").appendChild(novoItem);
+            const textoItem = document.getElementById("item").value;
+            const textoData = document.getElementById("data").value;
+
+            if (!textoItem || !textoData) {
+                alert("Adicione a tarefa e a data final (caso não tenha data final apenas informe)"); 
+                return; 
+            }
+
+            const novaLinha = document.createElement("tr");
+
+            const colunaItem = document.createElement("td");
+            colunaItem.textContent = textoItem;
+            const colunaData = document.createElement("td");
+            colunaData.textContent = textoData;
+
+            const colunaCheck = document.createElement("td");
+            colunaCheck.classList.add("check"); //add classe
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            const label = document.createElement("label");
+            
+            colunaCheck.appendChild(checkbox);
+            colunaCheck.appendChild(label);
+            checkbox.addEventListener("click", e => e.stopPropagation()); //pra clicar fora e no quadrado pra ticar. e = event, nome variavel
+            colunaCheck.addEventListener("click", () => {
+                checkbox.checked = !checkbox.checked;
+            }); 
+
+            novaLinha.appendChild(colunaCheck);
+            novaLinha.appendChild(colunaItem);
+            novaLinha.appendChild(colunaData);
+
+            document.getElementById("item").value = "";
+            document.getElementById("data").value = ""; 
+
+            document.getElementById("lista").appendChild(novaLinha);
         }
-        // deixar um embaixo do outro e no formato de lista.. add no td dentro do tr a cada adição
     </script>
 
 </body>

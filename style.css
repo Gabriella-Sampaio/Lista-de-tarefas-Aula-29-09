@@ -1,3 +1,86 @@
 *{
-    
+    margin: 0;
+    padding: 0;
 }
+
+header{
+    padding: 20px 10% 20px 10%;
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    font-family: cursive;
+    gap: 30px;
+}
+
+.imgHeader{
+    width: 60px;            
+    height: auto;
+}
+
+.titulo{
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.addTexto{
+    width: 30%;
+    border: 1px solid #ccc;
+    padding: 5px 10px 30px;
+}
+
+.button{
+    width: 10%;
+    padding: 5px 10px 30px;
+}
+
+.container{
+    margin: 10px;
+    padding: 15px 5% 10px 5%;
+}
+
+.containerLista{
+    font-family: sans-serif;
+}
+
+
+
+table { 
+
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed;
+}
+
+.primLinha{
+    background-color:rgb(250, 242, 232);
+}
+
+.check {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    transform: scale(1.5);
+   
+}
+
+input[type="checkbox"] {
+    /* gap: 600px; */
+    cursor: pointer;
+}
+
+th, td { 
+    border: 1px solid #ccc; 
+}
+
+td{
+    padding: 8px; 
+    width: 33%;
+    word-wrap: break-word; /* quebra texto */
+    white-space: normal; /* quebra texto */
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+
